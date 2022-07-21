@@ -1161,36 +1161,57 @@ describe('Counter', () => {
 });
 ```
 </p>
-<p v-click>This also applies to locators:</p>
+
+---
+hideInToc: true
+---
+
+# Tips and tricks
+
+<div>
+
+### 6. Query elements semantically
+
+</div>
+
 <div class="grid grid-cols-2 gap-4">
-<div v-click>
+<p v-click>
+Bad:
 
 ```js
-findDouble = () => wrapper.find('#double');
-findDouble = () => wrapper.find('.double');
+wrapper.find('.js-foo');
+wrapper.find('.btn-primary');
+wrapper.find('.qa-foo-component');
+wrapper.find('#unique');
 ```
-</div>
-<div v-click>
+</p>
+<p v-click>
+Better:
 
 ```js
-findDouble = () => wrapper.find('[data-testid="count"]');
+wrapper.find('[data-testid="my-foo-id"]');
+wrapper.find({ ref: 'foo'});
 ```
-</div>
-<div v-click>
+</p>
+<p v-click>
+Best:
 
 ```js
-findDouble = () => wrapper.findByText('Count');
+wrapper.findByText('Count');
 wrapper.findByRole('heading');
+wrapper.findByRole('link', { name: 'Click Me' });
 wrapper.findByLabelText('Password');
 wrapper.findByTitle('Delete');
+wrapper.findComponent(FooComponent);
 ```
-</div>
-<div v-click>
+</p>
+<p v-click>
+More on that:
 
 - [Vue Testing Library](https://testing-library.com/docs/vue-testing-library/intro)
 - [Frontend Test Element Locators](https://css-tricks.com/front-end-test-element-locators/)
 - [GitLab's "extendedWrapper"](https://gitlab.com/gitlab-org/gitlab/-/blob/master/spec/frontend/__helpers__/vue_test_utils_helper.js)
-</div>
+</p>
 </div>
 
 ---
@@ -1201,7 +1222,7 @@ hideInToc: true
 
 <div v-click>
 
-### 6. Treat child components as black boxes
+### 7. Treat child components as black boxes
 
 </div>
 
@@ -1241,7 +1262,7 @@ hideInToc: true
 
 <div>
 
-### 6. Treat child components as black boxes
+### 7. Treat child components as black boxes
 
 </div>
 
@@ -1274,7 +1295,7 @@ hideInToc: true
 
 <div v-click>
 
-### 7. Mock Vuex in the component
+### 8. Mock Vuex in the component
 
 </div>
 
@@ -1304,7 +1325,7 @@ hideInToc: true
 
 <div>
 
-### 7. Mock Vuex in the component
+### 8. Mock Vuex in the component
 
 </div>
 
@@ -1342,7 +1363,7 @@ hideInToc: true
 
 <div>
 
-### 7. Mock Vuex in the component
+### 8. Mock Vuex in the component
 
 </div>
 
@@ -1380,7 +1401,7 @@ hideInToc: true
 
 <div>
 
-### 7. Mock Vuex in the component
+### 8. Mock Vuex in the component
 
 </div>
 
@@ -1412,10 +1433,144 @@ hideInToc: true
 
 # Tips and tricks
 
+<div v-click>
+
+### 9. Wait in tests correctly
+
+</div>
+
+<p v-click>
+
+```js
+const askTheServer = async () => {
+  const { data } = await axios.get('/endpoint');
+};
+```
+</p>
+
+<p v-click>
+The best is to just await the call:
+
+```js
+it('waits for an ajax call', async () => {
+  await askTheServer();
+  expect(something).toBe('done');
+});
+```
+</p>
+
+<p v-click>
+runAllTicks clears micro-tasks queue:
+
+```js
+it('waits for an ajax call', async () => {
+  synchronousFunction();
+  vi.runAllTicks();
+  expect(something).toBe('done');
+});
+```
+</p>
+
+---
+hideInToc: true
+---
+
+# Tips and tricks
+
+<div>
+
+### 9. Wait in tests correctly
+
+</div>
+
+<p v-click>
+runAllTimers clears macro-tasks queue:
+
+```js
+it('waits for a setTimeout call', async () => {
+  synchronousFunction();
+  vi.runAllTimers();
+  expect(something).toBe('done');
+});
+```
+</p>
+
+<p v-click>
+Wait until a vue component is re-rendered:
+
+```js
+import { nextTick } from 'vue';
+
+it('waits for vue to re-render the component', async () => {
+  wrapper.setProps({ value: 'new value' });
+  await nextTick();
+  expect(wrapper.text()).toBe('new value');
+});
+```
+</p>
+
+---
+hideInToc: true
+---
+
+# Tips and tricks
+
+<div v-click>
+
+### 10. Follow Jest best pratices
+
+</div>
+
+<div class="grid grid-cols-2 gap-4">
+<p v-click>
+Prefer toBe over toEqual:
+
+```js
+expect(1).toEqual(1); // ✘
+expect(1).toBe(1); // ✔
+```
+</p>
+<p v-click>
+Prefer more befitting matchers:
+
+```js
+expect(arr.length).toBe(1); // ✘
+expect(foo).toBe(undefined); // ✘
+expect(arr).toHaveLength(1); // ✔
+expect(foo).toBeUndefined(); // ✔
+```
+</p>
+<p v-click>
+Be careful when using toBeTruthy or toBeFalsy:
+
+```js
+expect(null).toBeFalsy(); // ✘
+expect(null).toBe(false); // ✔
+```
+</p>
+<p v-click>
+Be careful when using toBeDefined:
+
+```js
+expect(wrapper.find('foo')).toBeDefined(); // ✘
+expect(wrapper.find('foo').exists()).toBe(true); // ✔
+```
+</p>
+</div>
+
+---
+hideInToc: true
+---
+
+# Tips and tricks
+
 #### 1. Understand what to test and structure your test accordingly
 #### 2. Start with component factory
 #### 3. Use helpers to find elements and components
 #### 4. Do not test component internals
 #### 5. Follow the user
-#### 6. Treat child components as black boxes
-#### 7. Mock Vuex in the component
+#### 6. Query elements semantically
+#### 7. Treat child components as black boxes
+#### 8. Mock Vuex in the component
+#### 9. Wait in tests correctly
+#### 10. Follow Jest best pratices
