@@ -1,0 +1,16 @@
+{
+  "name": "expense-tracker-api",
+  "version": "1.0.0",
+  "description": "Expense Tracker Api",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "server": "node index.js"
+  },
+  "author": "Marcin Brzeziński",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  }
+}
