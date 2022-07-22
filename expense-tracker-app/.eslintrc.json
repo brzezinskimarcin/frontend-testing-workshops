@@ -1,0 +1,38 @@
+{
+	"env": {
+		"es2021": true
+	},
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"extends": [
+		"eslint:recommended",
+		"airbnb-base",
+		"plugin:vue/recommended",
+    "@vue/eslint-config-prettier"
+	],
+	"plugins": [
+		"vue"
+	],
+	"rules": {
+		"vue/require-default-prop": 0,
+		"no-tabs": 0,
+		"object-curly-newline": 0,
+		"implicit-arrow-linebreak": 0,
+		"import/prefer-default-export": 0,
+		"operator-linebreak": [
+			"error",
+			"after"
+		],
+		"arrow-parens": [
+			"error",
+			"always"
+		],
+		"import/extensions": 0,
+		"import/no-unresolved": 0,
+		"no-new": 0,
+		"no-param-reassign": 0,
+    "no-shadow": 0,
+		"vue/multi-word-component-names": 0
+	}
+}

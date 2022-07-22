@@ -1,0 +1,33 @@
+{
+  "name": "expense-tracker-app",
+  "version": "1.0.0",
+  "description": "Expense Tracker App",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:cov": "echo \"Error: no test:cov specified\" && exit 1"
+  },
+  "author": "Marcin Brzeziński",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "chart.js": "^3.8.0",
+    "element-ui": ">2.15.9 || 2.15.8",
+    "vue": "^2.7.7",
+    "vue-chartjs": "^4.1.1",
+    "vue-router": "^3.5.4",
+    "vuex": "^3.6.2",
+    "vite": "^3.0.1",
+    "vite-plugin-vue2": "^2.0.2"
+  },
+  "devDependencies": {
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-vue": "^9.1.1",
+    "prettier": "^2.7.1",
+    "sass": "^1.53.0"
+  }
+}
