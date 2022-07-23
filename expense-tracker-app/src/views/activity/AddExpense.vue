@@ -14,7 +14,7 @@
           :category="category"
           :active="expense.category === category"
           selectable
-          @click="expense.category = $event"
+          @click="expense.category = category"
         />
       </div>
     </el-form-item>
