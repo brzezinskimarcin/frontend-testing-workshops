@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import activity from './activity';
-import categories from './categories';
-import statistics from './statistics';
+import activity from '@/src/store/activity';
+import categories from '@/src/store/categories';
+import statistics from '@/src/store/statistics';
 
 Vue.use(Vuex);
 

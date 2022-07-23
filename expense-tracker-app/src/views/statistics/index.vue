@@ -9,9 +9,9 @@
   </div>
 </template>
 <script>
-import Distribution from '@/views/statistics/Distribution.vue';
-import TotalExpensesMonthly from '@/views/statistics/TotalExpensesMonthly.vue';
-import DistributionMonthly from '@/views/statistics/DistributionMonthly.vue';
+import Distribution from '@/src/views/statistics/Distribution.vue';
+import TotalExpensesMonthly from '@/src/views/statistics/TotalExpensesMonthly.vue';
+import DistributionMonthly from '@/src/views/statistics/DistributionMonthly.vue';
 
 export default {
   components: {

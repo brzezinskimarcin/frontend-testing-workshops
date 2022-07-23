@@ -9,9 +9,7 @@ const state = {
     dateFrom: null,
     dateTo: null,
   },
-  activityLoading: false,
   activity: [],
-  activitySummaryLoading: false,
   activitySummary: [],
 };
 
@@ -22,36 +20,26 @@ const mutations = {
       ...searchQuery,
     };
   },
-  setActivityLoading: (state, activityLoading) => {
-    state.activityLoading = activityLoading;
-  },
   setActivity: (state, activity) => {
     state.activity = activity;
-  },
-  setActivitySummaryLoading: (state, activitySummaryLoading) => {
-    state.activitySummaryLoading = activitySummaryLoading;
   },
   setActivitySummary: (state, activitySummary) => {
     state.activitySummary = activitySummary;
   },
 };
 
-export const actions = {
+const actions = {
   async fetchActivitySummary({ commit }) {
-    commit('setActivitySummaryLoading', true);
     commit('setActivitySummary', []);
     const { data } = await axios.get('api/activity/summary');
     commit('setActivitySummary', data);
-    commit('setActivitySummaryLoading', false);
   },
   async fetchActivity({ commit, state }) {
-    commit('setActivityLoading', true);
     commit('setActivity', []);
     const { data } = await axios.get('api/activity', {
       params: state.searchQuery,
     });
     commit('setActivity', data);
-    commit('setActivityLoading', false);
   },
   async setSearchQuery({ commit }, query) {
     commit('setSearchQuery', query);
@@ -67,7 +55,7 @@ export const actions = {
   },
 };
 
-export const getters = {
+const getters = {
   activitySummary: ({ activitySummary }) => activitySummary,
   activity: ({ activity }) => activity,
   searchQuery: ({ searchQuery }) => searchQuery,

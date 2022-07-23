@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Distribution from '@/views/statistics/Distribution.vue';
+import Distribution from '@/src/views/statistics/Distribution.vue';
 
 export default {
   components: {

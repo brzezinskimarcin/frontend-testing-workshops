@@ -56,7 +56,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import ExpenseIcon from '@/views/_components/ExpenseIcon.vue';
+import ExpenseIcon from '@/src/views/_components/ExpenseIcon.vue';
 
 export default {
   components: {

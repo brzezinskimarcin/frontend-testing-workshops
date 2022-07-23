@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '@/views/home/index.vue';
-import Activity from '@/views/activity/index.vue';
-import Statistics from '@/views/statistics/index.vue';
-import Settings from '@/views/settings/index.vue';
-import activityRoutes from '@/views/activity/routes';
+import Home from '@/src/views/home/index.vue';
+import Activity from '@/src/views/activity/index.vue';
+import Statistics from '@/src/views/statistics/index.vue';
+import Settings from '@/src/views/settings/index.vue';
+import activityRoutes from '@/src/views/activity/routes';
 
 Vue.use(VueRouter);
 export default new VueRouter({

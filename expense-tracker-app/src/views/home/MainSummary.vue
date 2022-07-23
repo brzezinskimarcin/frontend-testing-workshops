@@ -1,12 +1,12 @@
 <template>
   <el-card v-if="summary" class="main-card" shadow="never">
     <div>This month you have spent:</div>
-    <div class="main-card__amount">{{ summary.total | float }} PLN</div>
+    <h2 class="main-card__amount">{{ summary.total | float }} PLN</h2>
     <div class="main-card__deviation">
       <i :class="['main-card__icon', deviationIcon]" />
-      <span class="main-card__deviation__description">
+      <h5 class="main-card__deviation__description">
         {{ summary.difference | percent }}
-      </span>
+      </h5>
     </div>
   </el-card>
 </template>
@@ -59,7 +59,8 @@ export default {
 
     &__description {
       font-size: 14px;
-      margin-left: 8px;
+      margin: 0 8px;
+      font-weight: 500;
     }
   }
 

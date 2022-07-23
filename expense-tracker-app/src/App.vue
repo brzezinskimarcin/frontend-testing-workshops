@@ -10,8 +10,8 @@
 
 <script>
 import { mapActions } from 'vuex';
-import AppHeader from '@/components/AppHeader.vue';
-import AppNavigation from '@/components/AppNavigation.vue';
+import AppHeader from '@/src/components/AppHeader.vue';
+import AppNavigation from '@/src/components/AppNavigation.vue';
 
 export default {
   components: {

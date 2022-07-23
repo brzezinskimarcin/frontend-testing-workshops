@@ -14,7 +14,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import ExpenseCard from '@/views/_components/ExpenseCard.vue';
+import ExpenseCard from '@/src/views/_components/ExpenseCard.vue';
 
 export default {
   components: {

@@ -1,17 +1,17 @@
 import Vue from 'vue';
 
-const floatFormatter = new Intl.NumberFormat(undefined, {
+const floatFormatter = new Intl.NumberFormat('pl-PL', {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 });
 
-const dateFormatter = new Intl.DateTimeFormat([], {
+const dateFormatter = new Intl.DateTimeFormat('pl-PL', {
   month: '2-digit',
   day: '2-digit',
   year: 'numeric',
 });
 
-const timeFormatter = new Intl.DateTimeFormat(undefined, {
+const timeFormatter = new Intl.DateTimeFormat('pl-PL', {
   hour: '2-digit',
   minute: '2-digit',
   hour12: false,

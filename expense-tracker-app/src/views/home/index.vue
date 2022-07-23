@@ -6,9 +6,9 @@
   </div>
 </template>
 <script>
-import MainSummary from './MainSummary.vue';
-import StatisticsSummary from './StatisticsSummary.vue';
-import ActivitySummary from './ActivitySummary.vue';
+import MainSummary from '@/src/views/home/MainSummary.vue';
+import StatisticsSummary from '@/src/views/home/StatisticsSummary.vue';
+import ActivitySummary from '@/src/views/home/ActivitySummary.vue';
 
 export default {
   components: {

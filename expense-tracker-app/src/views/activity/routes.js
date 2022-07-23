@@ -1,6 +1,6 @@
-import Dashboard from '@/views/activity/Dashboard.vue';
-import AddExpense from '@/views/activity/AddExpense.vue';
-import SetFilters from '@/views/activity/SetFilters.vue';
+import Dashboard from '@/src/views/activity/Dashboard.vue';
+import AddExpense from '@/src/views/activity/AddExpense.vue';
+import SetFilters from '@/src/views/activity/SetFilters.vue';
 
 export default [
   {

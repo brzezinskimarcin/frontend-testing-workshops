@@ -44,7 +44,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import ExpenseIcon from '@/views/_components/ExpenseIcon.vue';
+import ExpenseIcon from '@/src/views/_components/ExpenseIcon.vue';
 
 export default {
   components: {
@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       expense: {
-        category: 'shopping',
+        category: 'Shopping',
         value: null,
         title: null,
         date: Date.now(),

@@ -1460,14 +1460,14 @@ it('waits for an ajax call', async () => {
 </p>
 
 <p v-click>
-runAllTicks clears micro-tasks queue:
+waitForPromises helper to flush all pending promises:
 
 ```js
-it('waits for an ajax call', async () => {
-  synchronousFunction();
-  vi.runAllTicks();
-  expect(something).toBe('done');
-});
+function waitForPromises() {
+  return new Promise((resolve) => {
+    requestAnimationFrame(resolve);
+  });
+}
 ```
 </p>
 
@@ -1482,18 +1482,6 @@ hideInToc: true
 ### 9. Wait in tests correctly
 
 </div>
-
-<p v-click>
-runAllTimers clears macro-tasks queue:
-
-```js
-it('waits for a setTimeout call', async () => {
-  synchronousFunction();
-  vi.runAllTimers();
-  expect(something).toBe('done');
-});
-```
-</p>
 
 <p v-click>
 Wait until a vue component is re-rendered:
