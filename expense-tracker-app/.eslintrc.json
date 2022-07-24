@@ -26,6 +26,7 @@
     "no-param-reassign": 0,
     "no-shadow": 0,
     "vue/multi-word-component-names": 0,
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "no-underscore-dangle": 0
   }
 }

@@ -17,30 +17,32 @@ const timeFormatter = new Intl.DateTimeFormat('pl-PL', {
   hour12: false,
 });
 
-export function floatFilter(value) {
-  if (value === undefined || value === null) {
-    return '';
-  }
+export const filters = {
+  float: (value) => {
+    if (value === undefined || value === null) {
+      return '';
+    }
 
-  return floatFormatter.format(value);
-}
+    return floatFormatter.format(value);
+  },
 
-export function percentFilter(value) {
-  const decimal = floatFilter(value);
-  return decimal ? `${decimal}%` : '';
-}
+  percent: (value) => {
+    const decimal = filters.float(value);
+    return decimal ? `${decimal}%` : '';
+  },
 
-export function dateFilter(value) {
-  if (value === undefined || value === null) {
-    return '';
-  }
-  const date = new Date(value);
-  const formattedDate = dateFormatter.format(date);
-  const formattedHour = timeFormatter.format(date);
+  date: (value) => {
+    if (value === undefined || value === null) {
+      return '';
+    }
+    const date = new Date(value);
+    const formattedDate = dateFormatter.format(date);
+    const formattedHour = timeFormatter.format(date);
 
-  return `${formattedDate} ${formattedHour}`;
-}
+    return `${formattedDate} ${formattedHour}`;
+  },
+};
 
-Vue.filter('float', floatFilter);
-Vue.filter('percent', percentFilter);
-Vue.filter('date', dateFilter);
+Object.entries(filters).forEach(([key, filter]) => {
+  Vue.filter(key, filter);
+});
