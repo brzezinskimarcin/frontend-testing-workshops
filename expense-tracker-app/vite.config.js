@@ -24,4 +24,14 @@ export default defineConfig({
       },
     },
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: 'tests/vitest.setup.js',
+    coverage: {
+      all: true,
+      include: ['src/**/*.{js,vue}'],
+      exclude: ['src/**/*lang.js'],
+    },
+  },
 });

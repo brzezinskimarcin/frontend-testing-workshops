@@ -1,6 +1,10 @@
 {
   "env": {
-    "es2021": true
+    "es2021": true,
+    "jest": true
+  },
+  "globals": {
+    "vi": "readonly"
   },
   "parserOptions": {
     "sourceType": "module"
