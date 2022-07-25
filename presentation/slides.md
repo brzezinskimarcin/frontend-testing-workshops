@@ -320,8 +320,8 @@ obj.method();
 
 ```js
 // file.spec.js
-import { useObject } from 'some-path';
-vi.mock('some-path', () => ({
+import { useObject } from 'use-object';
+vi.mock('use-object', () => ({
   useObject: vi.fn(() => ({
     method: vi.fn(),
   })),
@@ -793,7 +793,7 @@ describe('template', () => {
 ```
 </p>
 
-<span v-click class="text-red-500">✘ WRONG!</span><span v-click> We should test component public interface:</span>
+<p v-click> We should test component public interface:</p>
 <div v-click class="-mt-2">
 
 - rendered template
@@ -880,7 +880,7 @@ describe('TodoList', () => {
 });
 ```
 </p>
-<span v-click class="text-red-500">✘ WRONG!</span><span v-click> It's better to extract the component mounting to another function.</span>
+<span v-click> It's better to extract the component mounting to another function.</span>
 
 ---
 hideInToc: true
@@ -953,7 +953,7 @@ describe('My component test', () => {
 </p>
 <p v-click> What if we change something in the confirmation button?</p>
 <p v-click> What if we replace it with custom component?</p>
-<span v-click class="text-red-500">✘ WRONG! </span><span v-click>Unreadable and very vulnerable to implementation changes.</span>
+<p v-click> This implementation is unreadable and very vulnerable to implementation changes.</p>
 
 ---
 hideInToc: true
@@ -1059,7 +1059,7 @@ describe('Counter', () => {
 });
 ```
 </p>
-<span v-click class="text-red-500">✘ WRONG! </span><span v-click>We are not testing component output. Very vulnerable to implementation changes.</span>
+<p v-click>We are not testing component output. Very vulnerable to implementation changes.</p>
 
 ---
 hideInToc: true
@@ -1134,7 +1134,6 @@ describe('Counter', () => {
 });
 ```
 </p>
-<span v-click class="text-red-500">✘ WRONG!</span>
 <div class="mt-1" v-click>The more your tests resemble the way your software is used, the more confidence they can give you.</div>
 
 ---
@@ -1353,7 +1352,7 @@ describe('Username', () => {
 });
 ```
 </p>
-<span v-click class="text-red-500">✘ WRONG! </span><span v-click>We are polluting global Vue instance. Now all tests will have Vuex.</span>
+<div v-click>This is a problem. We are polluting global Vue instance. Now all tests will have Vuex.</div>
 
 ---
 hideInToc: true
@@ -1391,7 +1390,7 @@ describe('Username', () => {
 });
 ```
 </p>
-<span v-click class="text-red-500">✘ WRONG! </span><span v-click>What if our store implementation is incorrect? Our test will fail.</span>
+<div v-click>Better. But what if our store implementation is incorrect? Our test will fail.</div>
 
 ---
 hideInToc: true
